@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: open_build_service
   author: James Wheatley
   description: Installs and configures the Open Build Service (OBS)
   company: AT&T
