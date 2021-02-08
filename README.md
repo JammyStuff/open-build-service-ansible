@@ -78,16 +78,18 @@ Address of the worker repository server. Defaults to localhost.
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role uses the `weareinteractive.hosts` role to ensure that an entry for 127.0.1.1 is present in /etc/hosts. This is required for remote workers to work properly. The `hosts_entries` variable is not set by this role to avoid clashes where you are using the `hosts` role for other purposes. Make sure that you have the variable set appropriately to create an entry for the FQDN of the node to point to 127.0.1.1. This could be done by adding the following to your host_vars:
+
+    hosts_entries:
+    - ip: 127.0.1.1
+      domain: "{{ ansible_fqdn }} {{ ansible_hostname }}"
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - jammystuff.open_build_service
 
 Development
 -----------
@@ -109,8 +111,3 @@ License
 -------
 
 BSD 3-Clause
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
