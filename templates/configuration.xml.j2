@@ -1,0 +1,26 @@
+<configuration>
+  <title>{{ obs_configuration_title }}</title>
+  <description>{{ obs_configuration_description }}</description>
+  <name>{{ obs_configuration_name }}</name>
+  <anonymous>{{ obs_configuration_anonymous_on_off }}</anonymous>
+  <registration>{{ obs_configuration_registration_allow_disallow }}</registration>
+  <default_access_disabled>{{ obs_configuration_default_access_disabled_on_off }}</default_access_disabled>
+  <allow_user_to_create_home_project>{{ obs_configuration_permit_user_home_on_off }}</allow_user_to_create_home_project>
+  <disallow_group_creation>{{ obs_configuration_group_creation_on_off }}</disallow_group_creation>
+  <change_password>{{ obs_configuration_change_password_on_off }}</change_password>
+  <hide_private_options>{{ obs_configuration_hide_private_options_on_off }}</hide_private_options>
+  <gravatar>{{ obs_configuration_gravatar_on_off }}</gravatar>
+  <enforce_project_keys>{{ obs_configuration_enforce_project_keys_on_off }}</enforce_project_keys>
+  <download_on_demand>{{ obs_configuration_download_on_demand_on_off }}</download_on_demand>
+  <download_url>{{ obs_configuration_download_url }}</download_url>
+  <obs_url>{{ obs_configuration_main_url }}</obs_url>
+  <admin_email>{{ obs_configuration_admin_email }}</admin_email>
+  <cleanup_empty_projects>{{ obs_configuration_cleanup_empty_projects_on_off }}</cleanup_empty_projects>
+  <cleanup_after_days>{{ obs_configuration_cleanup_after_days }}</cleanup_after_days>
+  <disable_publish_for_branches>{{ obs_configuration_disable_publish_for_branches_on_off }}</disable_publish_for_branches>
+  <schedulers>
+  {% for item in obs_server_architectures %}
+    <arch>{{ item }}</arch>
+  {% endfor %}
+  </schedulers>
+</configuration>

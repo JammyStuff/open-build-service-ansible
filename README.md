@@ -43,6 +43,89 @@ Address of the signing server to use. By default this is 127.0.0.1, meaning that
 
 The user to use for signing. Note that this corresponds to the email address of the GPG key that should be used. By default this is defaultkey@localobs, and this is the address that will be used for the key generated for the local signer created by this role. If you are using a detached signing server, it is recommended that you use a different email address for the GPG key on that machine and set this variable to it.
 
+### obs_configuration_title
+
+The title that appears on the web user interface landing page.
+
+### obs_configuration_description
+
+The description that appears on the web user interface landing page.
+
+### obs_configuration_name
+
+The instance name which gets generated into each package. Short string only, no white spaces recommended.
+
+### obs_configuration_anonymous_on_off
+
+Sets policy on whether anonymous access is permitted. The values 'on' or 'off' are valid.
+
+### obs_configuration_registration_allow_disallow
+
+Sets policy on whether user self registration is permitted. The values 'allow' and 'disallow' are valid.
+
+### obs_configuration_default_access_disabled_on_off
+
+Sets policy on whether default access is disabled. The values 'on' or 'off' are valid.
+
+### obs_configuration_permit_user_home_on_off
+
+Sets policy on whether a user is permitted to have a home project. The values 'on' or 'off' are valid.
+
+### obs_configuration_group_creation_on_off
+
+Sets policy on whether group creation is permitted. The values 'on' or 'off' are valid.
+
+### obs_configuration_change_password_on_off
+
+Sets policy on whether a user can change their password. The values 'on' or 'off' are valid.
+
+### obs_configuration_hide_private_options_on_off
+
+Sets policy on whether private options are hidden. The values 'on' or 'off' are valid.
+
+### obs_configuration_gravatar_on_off
+
+Sets policy on whether a gravatar should be used in the web user interface. The values 'on' or 'off' are valid.
+
+### obs_configuration_enforce_project_keys_on_off
+
+Sets policy on whether to enforce projects keys. The values 'on' or 'off' are valid.
+
+### obs_configuration_download_on_demand_on_off
+
+Sets policy on whether download on demand is permitted. The values 'on' or 'off' are valid.
+
+### obs_configuration_download_url
+
+Sets download url made available in the web user interface within the built package. Either unset, or a URI is valid.
+
+### obs_configration_main_url
+
+Sets the main url made available in the web user interface. A valid URI should be set.
+
+### obs_configuration_admin_email
+
+Sets the admin email. Should be a valid email address.
+
+### obs_configuration_cleanup_empty_projects_on_off
+
+Sets policy on whether OBS should perform a cleanup of empty projects. The values 'on' or 'off' are valid
+
+### obs_configuration_cleanup_after_days
+
+Sets the number of days before project cleanup. An integer value is valid.
+
+### obs_configuration_disable_publish_for_branches_on_off
+
+Sets policy on whether to disable publishing for branches. The values 'on' or 'off' are valid
+
+### obs_server_architectures
+
+Provides a list of architectures supported by the OBS instance, provided as a UML list.
+e.g.
+obs_service_architectures:
+  - x86_64
+
 ### obs_cert_path
 
 Path to a certificate for the web server to use. Disables self-signed certificate generation when set.
