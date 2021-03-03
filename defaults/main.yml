@@ -38,6 +38,7 @@ obs_configuration_admin_email: root@localhost
 obs_configuration_cleanup_empty_projects_on_off: on
 obs_configuration_cleanup_after_days: 30
 obs_configuration_disable_publish_for_branches_on_off: on
+obs_configuration_publish_hooks: ""
 obs_server_architectures:
   - x86_64
 

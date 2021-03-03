@@ -119,6 +119,11 @@ Sets the number of days before project cleanup. An integer value is valid.
 
 Sets policy on whether to disable publishing for branches. The values 'on' or 'off' are valid
 
+### obs_configuration_publish_hooks
+
+This is a string that allows for arbitrary addition statements to inserted into the configuration file. It is intended for adding things like custom `publishedhook =`.
+See: https://openbuildservice.org/help/manuals/obs-admin-guide/obs.cha.administration.html#_publisher_hooks
+
 ### obs_server_architectures
 
 Provides a list of architectures supported by the OBS instance, provided as a UML list.
