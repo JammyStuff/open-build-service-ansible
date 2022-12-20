@@ -71,6 +71,27 @@
     state: directory
 - name: Set up MySQL
   include_tasks: mysql.yml
+- name: Populate core configuration scripts
+  copy:
+    src: "{{ item }}"
+    dest: "/srv/www/obs/api/lib/tasks/{{ item }}"
+  loop:
+    - configuration.rake
+    - configuration_global_notification.rake
+    - admin_password.rake
+    - distribution.rake
+    - remote_instance.rake
+- name: Create core configuration.xml
+  template:
+    src: configuration.xml.j2
+    dest: /srv/www/obs/api/config/configuration.xml
+    owner: root
+    group: root
+    mode: 0600
+- name: Configure core configuration
+  shell: "RAILS_ENV=production bin/rails load_configuration_xml[/srv/www/obs/api/config/configuration.xml]"
+  args:
+    chdir: /srv/www/obs/api
 - name: Set ownership on API log directory
   file:
     path: /srv/www/obs/api/log

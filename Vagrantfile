@@ -92,8 +92,12 @@ Vagrant.configure("2") do |config|
     ansible.provisioning_path = "/vagrant/open-build-service"
     ansible.extra_vars = {
       ansible_python_interpreter: "/usr/bin/python3",
-      obs_xdelta1_compat: true
+      obs_xdelta1_compat: true,
+      hosts_entries: [
+        {ip: "127.0.0.1", domain: "{{ ansible_fqdn }} {{ ansible_hostname }}"}
+      ]
     }
+    ansible.galaxy_role_file = 'requirements.yml'
     ansible.playbook = "tests/test.yml"
   end
 end

@@ -4,7 +4,7 @@
 ---
 - name: Enable MySQL
   service:
-    name: mysql
+    name: mariadb
     enabled: yes
     state: started
 - name: Create MySQL config file

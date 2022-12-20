@@ -6,7 +6,7 @@
 - name: Configure Open Build Service repository
   zypper_repository:
     name: "OBS_{{obs_version}}"
-    repo: "https://download.opensuse.org/repositories/OBS:/Server:/{{obs_version}}/openSUSE_{{obs_opensuse_version}}/"
+    repo: "https://download.opensuse.org/repositories/OBS:/Server:/{{obs_version}}/{{obs_opensuse_version}}/"
     auto_import_keys: yes
 - name: Install Server
   include_tasks: server.yml
