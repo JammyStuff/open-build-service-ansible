@@ -6,7 +6,7 @@ Installs and configures the [Open Build Service (OBS)](https://openbuildservice.
 Requirements
 ------------
 
-This role is written for OpenSUSE, and is currently tested on OpenSUSE Leap 15.1. It makes use of the `zypper` and `zypper_repository` modules, so you need to install the `python-xml` package. Due to the use of the firewalld module, you must use Python 3 for your `ansible_python_interpreter`.
+This role is written for OpenSUSE, and is currently tested on OpenSUSE Leap 15.5. It makes use of the `zypper` and `zypper_repository` modules, so you need to install the `python-xml` package. Due to the use of the firewalld module, you must use Python 3 for your `ansible_python_interpreter`.
 
 Role Variables
 --------------
@@ -17,7 +17,7 @@ The version of OBS to install. Only 2.10 is tested. The default is 2.10.
 
 ### obs_opensuse_version
 
-The version of OpenSUSE OBS is being installed on. The default is 15.1.
+The version of OpenSUSE OBS is being installed on. The default is `ansible_distribution_version`.
 
 ### obs_fqdn
 
