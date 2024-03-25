@@ -168,4 +168,4 @@
   service_facts:
 - name: Configure firewall
   include_tasks: firewall.yml
-  when: services['firewalld.service']['state'] == 'running'
+  when: services['firewalld.service'] is defined and services['firewalld.service']['state'] == 'running'
