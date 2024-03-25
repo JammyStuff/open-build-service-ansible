@@ -125,7 +125,7 @@
   notify:
     - restart apache2
 - name: Generate server key
-  command: openssl genrsa -out /srv/obs/certs/server.key 1024
+  command: openssl genrsa -out /srv/obs/certs/server.key 4096
   args:
     creates: /srv/obs/certs/server.key
   notify:
