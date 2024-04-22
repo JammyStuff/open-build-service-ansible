@@ -36,33 +36,19 @@
     name: "{{ item }}"
     enabled: yes
     state: started
-  loop:
-    - obsrepserver
-    - obssrcserver
-    - obsscheduler
-    - obsdispatcher
-    - obspublisher
+  loop: "{{ obs_require_backend_services }}"
 - name: Enable recommended backend services
   service:
     name: "{{ item }}"
     enabled: yes
     state: started
-  loop:
-    - obsdodup
-    - obsdeltastore
-    - obssigner
-    - obssignd
-    - obsservicedispatch
+  loop: "{{ obs_recommended_backend_services }}"
 - name: Enable optional backend services
   service:
     name: "{{ item }}"
     enabled: yes
     state: started
-  loop:
-    - obswarden
-    - obsapisetup
-    - obsstoragesetup
-    - obsservice
+  loop: "{{ obs_optional_backend_services }}"
 - name: Create repo directory
   file:
     path: /srv/obs/repos

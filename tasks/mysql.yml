@@ -43,10 +43,7 @@
   shell: "RAILS_ENV=production bin/rails {{ item }} >> /srv/www/obs/api/log/db_migrate.log"
   args:
     chdir: /srv/www/obs/api
-  loop:
-    - db:create
-    - db:setup
-    - writeconfiguration
+  loop: "{{ obs_database_tasks }}"
   notify:
     - restart obsscheduler
   when: not ansible_check_mode and obs_mysql_set_up.rc > 0

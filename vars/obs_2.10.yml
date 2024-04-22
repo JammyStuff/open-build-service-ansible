@@ -1,0 +1,42 @@
+---
+obs_require_backend_services:
+    - obsrepserver
+    - obssrcserver
+    - obsscheduler
+    - obsdispatcher
+    - obspublisher
+
+obs_recommended_backend_services:
+    - obsdodup
+    - obsdeltastore
+    - obssigner
+    - obssignd
+    - obsservicedispatch
+
+obs_optional_backend_services:
+    - obswarden
+    - obsapisetup
+    - obsstoragesetup
+    - obsservice
+
+obs_database_tasks:
+    - db:create
+    - db:setup
+    - writeconfiguration
+
+obs_ruby_version: "2.7"
+
+obs_apache2_packages:
+    - apache2
+    - apache2-mod_xforward
+    - rubygem-passenger-apache2
+    - memcached
+
+obs_apache2_required_modules:
+    - passenger
+    - rewrite
+    - proxy
+    - proxy_http
+    - xforward
+    - headers
+    - socache_shmcb

@@ -3,6 +3,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 ---
 # Install tasks for either server or worker or both
+- name: Gather OBS version specific variables
+  include_vars: "obs_{{obs_version}}.yml"
 - name: Configure Open Build Service repository
   zypper_repository:
     name: "OBS_{{obs_version}}"
