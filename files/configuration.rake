@@ -31,7 +31,7 @@ task :load_configuration_xml, [:file] => :environment do |t, args|
   end
 
   @configuration = ::Configuration.first
-  ret = @configuration.update_attributes(attribs)
+  ret = @configuration.update(attribs)
   if ret
     puts "success"
     @configuration.save!

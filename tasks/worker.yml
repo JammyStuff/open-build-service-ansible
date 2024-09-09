@@ -27,11 +27,14 @@
   notify:
   - reboot
   - reboot message
-- name: Disable firewall on workers 
+- name: Gather service facts
+  service_facts:
+- name: Disable firewall on workers
   service:
     name: firewalld
     enabled: no
     state: stopped
+  when: services['firewalld.service'] is defined
 - name: Enable local build workers
   service:
     name: obsworker

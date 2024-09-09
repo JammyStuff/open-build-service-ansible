@@ -31,8 +31,8 @@ galaxy_info:
   platforms:
   - name: opensuse
     versions:
-    - 15.1
-    - 15.2
+    - 15.4
+    - 15.5
 
   galaxy_tags:
   - build

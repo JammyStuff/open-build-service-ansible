@@ -36,33 +36,19 @@
     name: "{{ item }}"
     enabled: yes
     state: started
-  loop:
-    - obsrepserver
-    - obssrcserver
-    - obsscheduler
-    - obsdispatcher
-    - obspublisher
+  loop: "{{ obs_require_backend_services }}"
 - name: Enable recommended backend services
   service:
     name: "{{ item }}"
     enabled: yes
     state: started
-  loop:
-    - obsdodup
-    - obsdeltastore
-    - obssigner
-    - obssignd
-    - obsservicedispatch
+  loop: "{{ obs_recommended_backend_services }}"
 - name: Enable optional backend services
   service:
     name: "{{ item }}"
     enabled: yes
     state: started
-  loop:
-    - obswarden
-    - obsapisetup
-    - obsstoragesetup
-    - obsservice
+  loop: "{{ obs_optional_backend_services }}"
 - name: Create repo directory
   file:
     path: /srv/obs/repos
@@ -125,7 +111,7 @@
   notify:
     - restart apache2
 - name: Generate server key
-  command: openssl genrsa -out /srv/obs/certs/server.key 1024
+  command: openssl genrsa -out /srv/obs/certs/server.key 4096
   args:
     creates: /srv/obs/certs/server.key
   notify:
@@ -168,4 +154,4 @@
   service_facts:
 - name: Configure firewall
   include_tasks: firewall.yml
-  when: services['firewalld.service']['state'] == 'running'
+  when: services['firewalld.service'] is defined and services['firewalld.service']['state'] == 'running'
